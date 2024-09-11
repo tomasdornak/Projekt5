@@ -1,0 +1,11 @@
+@mixin text-style1 {
+    font-family: "Poppins", sans-serif;
+    color: black;
+}
+
+@mixin text-style2 {
+    font-family: "Montserrat";
+    font-weight: 700;
+    color: black;
+    font-size: 34px;
+}
