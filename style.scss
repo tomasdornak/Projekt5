@@ -191,6 +191,8 @@
     .main-button2 {
         @include main-button2;
         margin-top: 20px;
+        margin-left: 0px !important;
+        padding: 0 0 0 0 !important;
     }
 
     .main-button2-container {
