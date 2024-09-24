@@ -16,7 +16,6 @@
   }
   
   * {
-    font-family: "Raleway";
     box-sizing: border-box;
   }
   
@@ -27,7 +26,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 60px;
     width: 100%;
     background-color: rgb(255, 255, 255);
     position: fixed;
@@ -99,7 +97,8 @@
   }
   
   #menu-toggle:checked + .menu-button-container + .menu {
-    max-height: 300px; 
+    max-height: 500px; 
+    margin-top: $navbar-height;
     overflow-y: auto; 
 }
   
@@ -336,7 +335,8 @@
   }
   
   #menu-toggle:checked + .menu-button-container + .menu {
-    max-height: 300px; 
+    max-height: 800px; 
+    margin-top: $navbar-height;
     overflow-y: auto; 
 }
   
@@ -519,7 +519,6 @@ body {
   margin: 0;
   padding: 0 20px;
   z-index: 100;
-  overflow: hidden; 
   flex-wrap: nowrap;
 }
 
