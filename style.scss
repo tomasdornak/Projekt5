@@ -57,6 +57,7 @@
     @include text-style1;
     text-align: center;
     align-items: center;
+    color: white;
   }
   
   .menu-button-container {
@@ -131,6 +132,10 @@
       overflow: hidden;
     }
 
+    .menu a {
+      color: #ffffff;
+    }
+
     #menu-toggle ~ .menu li {
       height: 0;
       margin: 0;
@@ -151,7 +156,6 @@
       top: 100%;
       padding: 0.5em 0;
       width: 100%;
-      color: white;
       background-color: #222;
     }
     .menu > li:not(:last-child) {
@@ -295,6 +299,15 @@
     @include text-style1;
     text-align: center;
     align-items: center;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgb(24, 29, 29);
+    }
+  }
+
+  .menu a {
+    color: #ffffff;
   }
   
   .menu-button-container {
@@ -482,8 +495,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: start;
-  flex: 0 1 auto; /* Může růst i se zmenšovat */
-  margin-left: 35px; /* Úprava marginu, aby se přizpůsobil */
+  flex: 0 1 auto;
+  margin-left: 35px; 
 
     img {
         height: 50px;
@@ -494,7 +507,6 @@ body {
     .logo-text {
         @include text-style2;
         margin: 0 0 0 0;
-        //text-shadow: 0px 3px 3px rgb(73, 69, 69);
     }
     }
 
@@ -544,7 +556,13 @@ body {
 
     li a {
         @include text-style1;
+        display: inline-block;
         text-decoration: none;
+        transition: transform 0.3s ease, color 0.3s ease;
+        &:hover {
+          color: $main-color;
+          transform: scale(1.1);
+        }
 }
 
 
@@ -565,13 +583,20 @@ body {
 .icon1, .icon2, .icon3, .icon4 {
   height: 27px;
   width: 27px;
-    
 }
 
-.icon1, .icon2, .icon3, .icon4 {
-    height: 27px;
-    width: 27px;
+.icons-container img {
+  transition: transform 0.3s ease; /* Přidáme přechod pro plynulé zvětšení */
+
+  &:hover {
+    transform: scale(1.1); /* Zvětšení při hoveru */
+  }
 }
+
+a {
+  text-decoration: none;
+}
+
 
 //=== END OF NAVBAR THIRD SECTION (ICONS) ===//
 
@@ -611,15 +636,28 @@ body {
     }
 
     .h1-text {
-        line-height: 1.26; 
-        color: $main-color;
-        font-family: "Poppins";
-        font-weight: 700;
-        font-size: 52px;
-        margin-top: -22px;
-        margin-left: 41px;
+      line-height: 1.26; 
+      color: $main-color;
+      font-family: "Poppins";
+      font-weight: 700;
+      font-size: 52px;
+      margin-top: -22px;
+      margin-left: 41px;
+    
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 3px solid;
+      animation: typing 3s steps(20, end) forwards; 
     }
+    
 
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 65%; }
+    }
+    
+      
 
     .main-p {
         font-family: "Poppins";
@@ -634,8 +672,9 @@ body {
     .main-button {
         @include main-button
     }
+  }
 
-}
+
 
 //=== END OF MAIN CONTENT ON HOME PAGE ===//
 
@@ -655,6 +694,8 @@ body {
 //=== END OF BACKGROUND ON HOME PAGE ===//
 
 //=== END OF DESKTOP VERSION ===//
+
+
 
 
 
