@@ -106,45 +106,174 @@
 <!-- MAIN-SECTION HOME PAGE  -->
 
 <section class="main-section">
+    <div class="main-container">
+        <div class="main-content">  
+            <!-- Carousel Items -->
+            <div class="content-item active" id="content-1">
+                <div class="h5-text">
+                <a href="#"> 
+                    <h5>New Arrival</h5>
+                </a>
+            </div>
+                <p class="h1-text">
+                    <span class="first-part">Discover Our</span><br>
+                    <span class="second-part">New Collection</span>
+                </p>
 
-<div class="main-container">
+                <p class="main-p">Lorem ipsum dolor sit amet, consectetur adipiscing <br> elit. Ut elit tellus, luctus nec ullamcorper mattis.</p>
+                <div class="button-container">
+                    <button class="main-button">BUY NOW</button>
+                </div>
+            </div>
 
-    <div class="main-content">   
-        <h5>New Arrival</h5>
-        <p class="h1-text">
-            <span class="first-part">Discover Our</span><br>
-            <span class="second-part">New Collection</span>
-        </p>
-        <p class="main-p"> ipsum dolor sit amet, consectetur adipiscing elit. Ut <br>elit tellus, luctus nec ullamcorper mattis.</p>
-        <button class="main-button">BUY NOW</button>
+            <div class="content-item" id="content-2">
+                <div class="h5-text">
+                <a href="#"> 
+                    <h5>Popular Items</h5> 
+                </a>
+                </div>
+                <p class="h1-text">
+                    <span class="first-part">Best Sellers</span><br>
+                </p>
+                <p class="main-p">Lorem ipsum dolor sit amet consectetur adipisicing<br> elit. Error sequi, eveniet recusandae explicabo.</p>
+                <div class="product-images">
+                    <div class="product">
+                        <a href="#">
+                        <img src="images/zidle.jpg" alt="Product 1" class="product-image">
+                        </a>
+                        <h6>Product Name 1</h6>
+                        <p class="main-p3">99.99$</p>
+                    </div>
+                    <div class="product">
+                        <a href="#">
+                        <img src="images/stul.jpg" alt="Product 2" class="product-image">
+                        </a>
+                        <h6>Product Name 2</h6>
+                        <p class="main-p3">99.99$</p>
+                    </div>
+                    <div class="product">
+                        <a href="#">
+                            <img src="images/skrin.jpg" alt="Product 3" class="product-image">
+                        </a>
+                        <h6>Product Name 3</h6>
+                        <p class="main-p3">99.99$</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="content-item" id="content-3">
+                <div class="h5-text">
+                <a href="#">
+                    <h5>Special Offers</h5>
+                </a>
+                </div>
+                <p class="h1-text">
+                    <span class="first-part">Today Only</span><br>
+                    <span class="second-part">Use Code:</span>
+                    <span class="text-wrapper">
+                        <span class="letters">FLASH25</span>
+                    </span>
+                </p>
+                
+                <p class="main-p">Lorem, ipsum dolor sit amet consectetur adipisicing<br>elit. Illo provident porro unde!</p>
+                
+                <div class="button-container">
+                    <button class="main-button">Learn More</button>
+                </div>
+            </div>
 
-        <p class="h1-text2">
-            <span class="first-part2">Discover Our</span><br>
-            <span class="second-part2">New Collection</span>
-            <p class="p-text2">Lorem ipsum dolor sit amet.</p>
-            <div class="main-button2-container">
-            <button class="main-button2">BUY NOW</button>
+
+            <!-- Navigation buttons (arrows) -->
+            <div class="carousel-controls">
+                <button class="prev-btn">❮</button>
+                <button class="next-btn">❯</button>
+            </div>
         </div>
-        </p>
+    </div>
+
 
     </div>
+    
 
 
 </section>
 
 <!-- END OF MAIN-SECTION HOME PAGE  -->
     
+
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+
 <script>
-    window.addEventListener('load', function () {
-      // Najdi element s třídou .h1-text
-      const textElement = document.querySelector('.h1-text');
-      
-      // Přidej událost pro dokončení animace
-      textElement.addEventListener('animationend', function() {
-        // Skryj kurzor po dokončení animace
-        textElement.style.borderRight = 'none';
-      });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const items = document.querySelectorAll('.content-item');
+    const nextBtn = document.querySelector('.next-btn');
+    const prevBtn = document.querySelector('.prev-btn');
+    let currentItem = 0;
+    const totalItems = items.length;
+
+    // Function to switch to a specific content item
+    function showItem(index) {
+        items.forEach((item, i) => {
+            item.classList.remove('active');
+            item.style.display = 'none';
+            if (i === index) {
+                item.classList.add('active');
+                item.style.display = 'block';
+            }
+        });
+    }
+
+    // Show the initial item
+    showItem(currentItem);
+
+    // Show the next item
+    nextBtn.addEventListener('click', () => {
+        currentItem = (currentItem + 1) % totalItems;
+        showItem(currentItem);
     });
-  </script>
+
+    // Show the previous item
+    prevBtn.addEventListener('click', () => {
+        currentItem = (currentItem - 1 + totalItems) % totalItems;
+        showItem(currentItem);
+    });
+});
+
+</script>
+
+<script>
+ 
+    var textWrapper = document.querySelector('.letters');
+    
+    if (textWrapper) {
+        // Nahradí každý znak za nový span
+        textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+        // Aplikace anime.js animace
+        anime.timeline({loop: true})
+          .add({
+            targets: '.letter',  // Selektor pro jednotlivá písmena
+            rotateY: [-90, 0],   // Rotace z -90 stupňů na 0
+            duration: 1300,
+            delay: (el, i) => 45 * i  // Zpoždění pro každé písmeno
+          })
+          .add({
+            targets: '.letters',   // Selektor pro celý text .letters
+            opacity: 0,
+            duration: 1000,
+            easing: "easeOutExpo",
+            delay: 1000
+          });
+    }
+</script>
+
+
 </body>
 </html>
