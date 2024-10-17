@@ -3,18 +3,15 @@
     margin: 0;
     height: 100%;
   }
-  * {
-    box-sizing: border-box;
-  }
   .navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    height: 60px;
     width: 100%;
     background-color: rgb(255, 255, 255);
     position: fixed;
     top: 0;
-    padding: 0 20px;
     z-index: 100;
     overflow: visible;
   }
@@ -40,7 +37,13 @@
     color: black;
     text-align: center;
     align-items: center;
-    color: white;
+    cursor: pointer;
+  }
+  .menu > li:hover {
+    background-color: rgb(24, 29, 29);
+  }
+  .menu a {
+    color: #ffffff;
   }
   .menu-button-container {
     display: none;
@@ -75,7 +78,7 @@
     margin-top: 8px;
   }
   #menu-toggle:checked + .menu-button-container + .menu {
-    max-height: 500px;
+    max-height: 800px;
     margin-top: 95px;
     overflow-y: auto;
   }
@@ -103,9 +106,6 @@
     align-items: center;
     overflow: hidden;
   }
-  .menu a {
-    color: #ffffff;
-  }
   #menu-toggle ~ .menu li {
     height: 0;
     margin: 0;
@@ -126,6 +126,7 @@
     top: 100%;
     padding: 0.5em 0;
     width: 100%;
+    color: white;
     background-color: #222;
   }
   .menu > li:not(:last-child) {
@@ -166,9 +167,11 @@
   }
   .h1-text {
     text-align: center !important;
-    font-size: 40px !important;
+    font-size: 35px !important;
     margin: 0 auto !important;
     width: auto !important;
+    margin-top: 3% !important;
+    margin-bottom: 3% !important;
   }
   .content-item {
     display: flex;
@@ -180,11 +183,11 @@
     padding: 20px;
   }
   .main-p {
-    margin-left: 10% !important;
-    margin-right: 10% !important;
+    margin-left: 15% !important;
+    margin-right: 15% !important;
   }
   .h5-text {
-    margin-top: 40%;
+    margin-top: 30%;
   }
   h5 {
     text-align: center !important;
@@ -192,14 +195,15 @@
     margin-right: 0 !important;
     width: 100% !important;
   }
-  .first-part,
-  .second-part {
-    display: inline-block;
-    width: 100%;
-  }
   .prev-btn, .next-btn, .carousel-controls {
     flex-grow: 0 !important;
     align-self: flex-end;
+  }
+  .product-images {
+    justify-content: center !important;
+  }
+  .product-images img {
+    width: 90px !important;
   }
 }
 @media (min-width: 768px) and (max-width: 991px) {
@@ -702,12 +706,6 @@ h6 {
 .text-wrapper {
   overflow: hidden;
   margin-bottom: 20px;
-}
-
-.letter {
-  display: inline-block;
-  line-height: 1em;
-  transform-origin: 0 0;
 }
 
 #content-3 .h1-text {
